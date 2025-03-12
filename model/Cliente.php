@@ -1,4 +1,5 @@
 <?php
+require_once 'Conexion.php';
 class Cliente {
 
     private $db;

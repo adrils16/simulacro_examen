@@ -37,7 +37,7 @@
             <h1>Identif&iacute;quese
             </h1>
             <!-- Formulario de identificación -->
-            <form name="login" action="verify.php" method="POST">
+            <form name="login" action="/index.php?controlador=Cliente&accion=login" method="POST">
                <table>
                   <tr>
                      <td align="right">
