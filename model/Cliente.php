@@ -16,10 +16,10 @@ class Cliente {
     public function login($username, $password) {
         try {
             // Prepara la consulta SQL para seleccionar el usuario y la contraseña de la tabla Cliente
-            $consulta = $this->db->getConexion()->prepare("SELECT `user`, `pass` FROM `Cliente` WHERE user = :user AND pass = :pass");
+            $consulta = $this->db->getConexion()->prepare("SELECT `alias`, `pass` FROM `Cliente` WHERE alias = :alias AND pass = :pass");
             
             // Ejecuta la consulta con los parámetros proporcionados
-            $consulta->execute([':user' => $username, ':pass' => $password]);
+            $consulta->execute([':alias' => $username, ':pass' => $password]);
             
             // Obtiene los resultados de la consulta
             $filas = $consulta->fetch(PDO::FETCH_ASSOC);
@@ -30,13 +30,13 @@ class Cliente {
             // Verifica si se encontraron filas (usuario y contraseña coinciden)
             if ($filas !== false) {
                 // Asigna los valores de usuario y contraseña a variables
-                $user = $filas['user'];
+                $alias = $filas['alias'];
                 $pass = $filas['pass'];
                 
                 // Inicia una sesión y guarda los datos del usuario en variables de sesión
                 session_start();
                 $_SESSION['logged'] = true;
-                $_SESSION['user'] = $user;
+                $_SESSION['alias'] = $alias;
                 $_SESSION['pass'] = $pass;
                 
                 // Retorna verdadero indicando que el login fue exitoso

@@ -43,7 +43,7 @@
                <table>
                 <tr>
                     <td align="right">
-                     Escoja pedido a partir del c�digo del mismo
+                     Escoja pedido a partir del c&oacute;digo del mismo
                     </td>
                     <td>
                      <select name="pedido">
