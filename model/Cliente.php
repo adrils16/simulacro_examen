@@ -54,4 +54,14 @@ class Cliente {
             $this->db->cerrarConexion();
         }
     }
+
+    /**
+     * Cierra la sesión de un usuario
+     * @return void
+     */
+    function logout() {
+        session_unset(); // Limpia todas las variables de sesión
+        session_destroy(); // Destruye todas las sesiones
+        header(header: "Location: ../index.php?controlador=Cliente"); // Redirige al index
+    }
 }
